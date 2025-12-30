@@ -1,0 +1,74 @@
+:root {
+    --primary: #5d4037;    /* Marron chocolat riche */
+    --accent: #c19a6b;     /* Or/Biscuit */
+    --light: #fdfaf5;      /* Crème */
+    --text: #333;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body { 
+    font-family: 'Poppins', sans-serif; 
+    line-height: 1.6; 
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+.container { max-width: 1200px; margin: auto; padding: 0 20px; }
+.section { padding: 80px 0; }
+.highlight { color: var(--accent); }
+.bg-light { background-color: var(--light); }
+
+/* HEADER & NAV */
+header { 
+    background: #fff; padding: 15px 0; position: sticky; top: 0; 
+    z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+}
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { 
+    font-family: 'Dancing Script', cursive; font-size: 1.8rem; 
+    color: var(--primary); text-decoration: none; 
+}
+.nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+.btn-nav { background: var(--primary); color: #fff !important; padding: 10px 20px; border-radius: 5px; }
+
+/* HERO */
+.hero { 
+    height: 80vh; 
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/hero-patisserie.jpg') center/cover;
+    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+}
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
+.btn-main { 
+    background: var(--accent); color: #fff; padding: 15px 35px; 
+    text-decoration: none; display: inline-block; margin-top: 30px; font-weight: bold; border-radius: 5px;
+}
+
+/* ABOUT SECTION */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.profile-img { width: 100%; border-radius: 15px; box-shadow: 15px 15px 0 var(--accent); }
+.stats { display: flex; gap: 30px; margin-top: 30px; }
+.stat-item { text-align: center; }
+.stat-item strong { display: block; font-size: 1.5rem; color: var(--primary); }
+
+/* CARDS */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+
+/* MOBILE RESPONSIVE */
+.menu-toggle { display: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; background: var(--primary); margin: 5px auto; transition: 0.3s; }
+
+@media (max-width: 768px) {
+    .nav-links { 
+        position: absolute; top: 100%; right: -100%; background: #fff; 
+        width: 100%; height: 100vh; flex-direction: column; padding-top: 50px; transition: 0.5s; 
+    }
+    .nav-links.active { right: 0; }
+    .menu-toggle { display: block; }
+    .about-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+}
